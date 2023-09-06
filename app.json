@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "ifood-clone",
+    "slug": "ifood-clone",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/1.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/1.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/1.png",
+        "backgroundColor": "#ffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/1.png"
+    }
+  }
+}
