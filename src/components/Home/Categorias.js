@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 30,
     marginHorizontal: 0,
+    backgroundColor: '#0000'
   },
   header: {
     marginLeft: 20,

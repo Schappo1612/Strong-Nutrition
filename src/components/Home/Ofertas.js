@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 20,
     marginHorizontal: 0,
+    backgroundColor:'#0000'
   },
   header: {
     flexDirection: "row",
