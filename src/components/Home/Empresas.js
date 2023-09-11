@@ -31,7 +31,7 @@ export default function Empresas() {
         {empresas.map((empresa) => (
           <TouchableOpacity style={styles.item} key={empresa.id}>
             <Image
-              source={{ uri: empresa.parceiras_url }} 
+              source={{ uri: empresa.image }} 
               style={styles.imagem}
             />
             <View style={styles.info}>

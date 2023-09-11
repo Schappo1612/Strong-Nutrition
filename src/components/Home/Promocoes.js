@@ -21,7 +21,7 @@ export default function Promocoes({ navigation }) {
     >
       {promocoes.map((promocao) => (
         <TouchableOpacity style={styles.item} key={promocao.id}>
-          <Image source={{ uri: promocao.promo_url }} style={styles.imagem} />
+          <Image source={{ uri: promocao.image }} style={styles.imagem} />
         </TouchableOpacity>
       ))}
     </ScrollView>

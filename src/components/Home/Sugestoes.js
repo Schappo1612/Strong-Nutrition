@@ -22,7 +22,7 @@ export default function Sugestoes() {
     <ScrollView showsHorizontalScrollIndicator={false} style={styles.lista}>
       {sugestoes.map((sugestao) => (
         <TouchableOpacity style={styles.item} key={sugestao.id}>
-          <Image source={{ uri: sugestao.sugg_url }} style={styles.imagem} />
+          <Image source={{ uri: sugestao.image }} style={styles.imagem} />
           <Text style={styles.titulo}>{sugestao.title}</Text>
         </TouchableOpacity>
       ))}
