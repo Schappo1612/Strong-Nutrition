@@ -7,25 +7,25 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import api from '../../services/api';
+// import api from '../../services/api';
 
 export default function Sugestoes() {
-  const [sugestoes, setSugestoes] = useState([]);
-  useEffect(() => {
-    async function carregarSugestoes() {
-      const response = await api.get('suggestions');
-      setSugestoes(response.data);
-    }
-    carregarSugestoes();
-  }, []);
+  // const [sugestoes, setSugestoes] = useState([]);
+  // useEffect(() => {
+  //   async function carregarSugestoes() {
+  //     const response = await api.get('suggestions');
+  //     setSugestoes(response.data);
+  //   }
+  //   carregarSugestoes();
+  // }, []);
   return (
     <ScrollView showsHorizontalScrollIndicator={false} style={styles.lista}>
-      {sugestoes.map((sugestao) => (
+      {/* {sugestoes.map((sugestao) => (
         <TouchableOpacity style={styles.item} key={sugestao.id}>
           <Image source={{ uri: sugestao.image }} style={styles.imagem} />
           <Text style={styles.titulo}>{sugestao.title}</Text>
         </TouchableOpacity>
-      ))}
+      ))} */}
     </ScrollView>
   );
 }

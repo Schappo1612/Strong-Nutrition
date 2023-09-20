@@ -9,7 +9,7 @@ export default function Item({ route, navigation }) {
   return (
     <ScrollView showsVerticalScrollIndicator={true} style={styles.container}>
       <View style={styles.detalhe}></View>
-      <Image style={styles.itemImage} source={{ uri: item.offer_url }}  />
+      <Image style={styles.itemImage} source={{ uri: item.image }}  />
       <Text style={styles.itemTitulo}>{item.title}</Text>
       <Text style={styles.itemIngredientes}>{item.ingredients}</Text>
       <View style={styles.info}>

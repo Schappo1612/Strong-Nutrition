@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
-import api from '../../services/api';
+// import api from '../../services/api';
 
 export default function Promocoes({ navigation }) {
-  const [promocoes, setPromocoes] = useState([]);
+  // const [promocoes, setPromocoes] = useState([]);
 
-  useEffect(() => {
-    async function carregarPromocoes() {
-      const response = await api.get('promotions');
-      setPromocoes(response.data);
-    }
-    carregarPromocoes();
-  }, []);
+  // useEffect(() => {
+  //   async function carregarPromocoes() {
+  //     const response = await api.get('promotions');
+  //     setPromocoes(response.data);
+  //   }
+  //   carregarPromocoes();
+  // }, []);
 
   return (
     <ScrollView
@@ -19,11 +19,11 @@ export default function Promocoes({ navigation }) {
       horizontal
       style={styles.lista}
     >
-      {promocoes.map((promocao) => (
+      {/* {promocoes.map((promocao) => (
         <TouchableOpacity style={styles.item} key={promocao.id}>
           <Image source={{ uri: promocao.image }} style={styles.imagem} />
         </TouchableOpacity>
-      ))}
+      ))} */}
     </ScrollView>
   );
 }

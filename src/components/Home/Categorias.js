@@ -2,23 +2,28 @@ import React, { useEffect, useState } from 'react';
 import {
   Image,
   ScrollView,
-  Text,
   TouchableOpacity,
   View,
   StyleSheet,
 } from 'react-native';
-import api from '../../services/api';
+import { Text, Button, List } from 'react-native-paper';
+import categoriaService from '../../services/categorias';
 
 export default function Categorias() {
   const [categorias, setCategorias] = useState([]);
 
-  useEffect(() => {
-    async function carregarCategorias() {
-      const response = await api.get('categories');
-      setCategorias(response.data);
-    }
-    carregarCategorias();
+  const getCategorias = async () => {
+    const data = await categoriaService.getAllCategorias();
+    setCategorias(data);
+  };
+
+  useEffect(async () => {
+    getCategorias();
   }, []);
+
+  const updateCategorias = async () => {
+    await getCategorias();
+  };
 
   return (
     <View style={styles.container}>
@@ -30,15 +35,11 @@ export default function Categorias() {
         horizontal
         style={styles.lista}
       >
+        <>
         {categorias.map((categoria) => (
-          <TouchableOpacity key={categoria.id} style={styles.item}>
-            <Image
-              source={{ uri: categoria.image }} 
-              style={styles.imagem}
-            />
-            <Text style={styles.categoriaTitulo}>{categoria.title}</Text>
-          </TouchableOpacity>
+          <List.Item key={categoria.id} title={categoria.descricao} />
         ))}
+      </>
       </ScrollView>
     </View>
   );

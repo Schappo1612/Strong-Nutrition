@@ -28,7 +28,7 @@ export default function Produtos() {
         {produtos.map((produto) => (
           <TouchableOpacity style={styles.item} key={produto.id}>
             <Image
-              source={{ uri: produto.parceiras_url }} 
+              source={{ uri: produto.image }} 
               style={styles.imagem}
             />
             <View style={styles.info}>

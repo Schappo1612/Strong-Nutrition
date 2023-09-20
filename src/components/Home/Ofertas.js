@@ -9,7 +9,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-import api from "../../services/api";
+import api from "../../plugins/api";
 import { formatNumber } from "../../helpers/formatNumber";
 
 export default function Ofertas({ navigation }) {
@@ -19,7 +19,7 @@ export default function Ofertas({ navigation }) {
       const response = await api.get("offers");
       const data = response.data.map((offer) => ({
         id: offer.id,
-        offer_url: offer.offer_url,
+        image: offer.image,
         title: offer.title,
         newPrice: formatNumber(offer.newPrice),
         price: formatNumber(offer.price),
@@ -54,7 +54,7 @@ export default function Ofertas({ navigation }) {
             key={oferta.id}
             onPress={() => navigation.navigate("Item", { item: oferta })}
           >
-            <Image source={{ uri: oferta.offer_url }} style={styles.imagem} />
+            <Image source={{ uri: oferta.image }} style={styles.imagem} />
             <View style={styles.info}>
               <Text numberOfLines={2} style={styles.titulo}>
                 {oferta.title}

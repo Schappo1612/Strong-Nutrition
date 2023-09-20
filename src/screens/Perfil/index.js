@@ -103,7 +103,7 @@ export default function Perfil({ navigation }) {
         <TouchableOpacity style={styles.opcoesAdicionais}>
           <View style={styles.wrapper}>
             <MaterialIcons name="store-mall-directory" size={25} color="#CDC" />
-            <Text style={styles.optionName}>Sugerir Empresas</Text>
+            <Text style={styles.optionName}>Sugerir Fornecedores</Text>
           </View>
           <MaterialIcons name="keyboard-arrow-right" color="#999" size={20} />
         </TouchableOpacity>
