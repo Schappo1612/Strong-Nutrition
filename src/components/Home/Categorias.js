@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Image,
   ScrollView,
   TouchableOpacity,
   View,
   StyleSheet,
-} from 'react-native';
-import { Text, Button, List } from 'react-native-paper';
-import categoriaService from '../../services/categorias';
+} from "react-native";
+import { Text, Button, List } from "react-native-paper";
+import categoriaService from "../../services/categorias";
 
 export default function Categorias() {
   const [categorias, setCategorias] = useState([]);
@@ -36,10 +36,13 @@ export default function Categorias() {
         style={styles.lista}
       >
         <>
-        {categorias.map((categoria) => (
-          <List.Item key={categoria.id} title={categoria.descricao} />
-        ))}
-      </>
+          {categorias.map((categoria) => (
+            <TouchableOpacity key={categoria.id}>
+              <Text> {categoria.descricao}</Text>
+              <Image source={{ uri: categoria.claudio }} style={styles.imagem} />
+            </TouchableOpacity>
+          ))}
+        </>
       </ScrollView>
     </View>
   );
@@ -49,14 +52,14 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 30,
     marginHorizontal: 0,
-    backgroundColor: '#0000'
+    backgroundColor: "#0000",
   },
   header: {
     marginLeft: 20,
   },
   titulo: {
     fontSize: 23,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   lista: {
     marginTop: 10,
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
   },
   item: {
     marginRight: 15,
-    alignItems: 'center',
+    alignItems: "center",
   },
   imagem: {
     width: 100,
@@ -74,6 +77,6 @@ const styles = StyleSheet.create({
   categoriaTitulo: {
     fontSize: 16,
     marginTop: 10,
-    color: '#999',
+    color: "#999",
   },
 });

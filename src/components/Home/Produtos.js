@@ -2,48 +2,48 @@ import React, { useEffect, useState } from 'react';
 import {
   Image,
   ScrollView,
-  View,
-  Text,
   TouchableOpacity,
+  View,
   StyleSheet,
 } from 'react-native';
+import { Text, Button, List } from 'react-native-paper';
+import fornecedorService from '../../services/produtos';
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
 
-  useEffect(() => {
-    async function carregarProdutos() {
+  const getProdutos = async () => {
+    const data = await produtoService.getAllProdutos();
+    setProdutos(data);
+  };
 
-      setProdutos(response.data);
-    }
-    carregarProdutos();
+  useEffect(async () => {
+    getProdutos();
   }, []);
+
+  const updateProdutos = async () => {
+    await getProdutos();
+  };
 
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.header}>
         <Text style={styles.titulo}>Produtos</Text>
       </View>
-      <ScrollView style={styles.lista}>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        horizontal
+        style={styles.lista}
+      >
+        <>
         {produtos.map((produto) => (
-          <TouchableOpacity style={styles.item} key={produto.id}>
-            <Image
-              source={{ uri: produto.image }} 
-              style={styles.imagem}
-            />
-            <View style={styles.info}>
-              <Text style={styles.produtoTitulo}>
-                {' '}
-                {produto.title}{' '}
-              </Text>
-            </View>
-          </TouchableOpacity>
+          <List.Item key={produto.id} title={produto.descricao} />
         ))}
+      </>
       </ScrollView>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     marginVertical: 20,
