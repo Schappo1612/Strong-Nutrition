@@ -37,7 +37,7 @@ export default function Categorias() {
       >
         <>
           {categorias.map((categoria) => (
-            <TouchableOpacity key={categoria.id}>
+            <TouchableOpacity key={categoria.id} style={styles.categorias}>
               <Text> {categoria.descricao}</Text>
               <Image source={{ uri: categoria.claudio }} style={styles.imagem} />
             </TouchableOpacity>
@@ -46,6 +46,9 @@ export default function Categorias() {
       </ScrollView>
     </View>
   );
+
+  
+  
 }
 
 const styles = StyleSheet.create({
@@ -79,4 +82,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: "#999",
   },
+  categorias:{
+    marginLeft: 20,
+    marginRight: 55,
+  }
 });

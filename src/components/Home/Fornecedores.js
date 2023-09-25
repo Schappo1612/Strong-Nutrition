@@ -37,7 +37,11 @@ export default function Fornecedores() {
       >
         <>
         {fornecedores.map((fornecedor) => (
-          <List.Item key={fornecedor.id} title={fornecedor.descricao} />
+          // <List.Item key={fornecedor.id} title={fornecedor.descricao} />
+          <TouchableOpacity key={fornecedor.id} style={styles.fornecedor}>
+              <Text> {fornecedor.nome}</Text>
+              <Image source={{ uri: fornecedor.claudio }} style={styles.imagem} />
+            </TouchableOpacity>
         ))}
       </>
       </ScrollView>
@@ -47,15 +51,37 @@ export default function Fornecedores() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    marginVertical: 30,
+    marginHorizontal: 0,
+    backgroundColor: "#0000",
   },
-  menuEndereco: {
-    flexDirection: 'row',
+  header: {
+    marginLeft: 20,
   },
-  localizacao: {
-    color: '#333',
+  titulo: {
+    fontSize: 23,
+    fontWeight: "bold",
+  },
+  lista: {
+    marginTop: 10,
+    paddingLeft: 20,
+  },
+  item: {
+    marginRight: 15,
+    alignItems: "center",
+  },
+  imagem: {
+    width: 100,
+    height: 120,
+    borderRadius: 10,
+  },
+  fornecedorTitulo: {
     fontSize: 16,
-    fontWeight: 'bold',
+    marginTop: 10,
+    color: "#999",
   },
+  fornecedor: {
+    marginLeft: 20,
+    marginRight: 55,
+  }
 });
