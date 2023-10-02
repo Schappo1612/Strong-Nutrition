@@ -7,7 +7,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import { Text, Button, List } from 'react-native-paper';
+
 import fornecedorService from '../../services/fornecedores';
+
 
 export default function Fornecedores() {
   const [fornecedores, setFornecedores] = useState([]);
@@ -40,7 +42,7 @@ export default function Fornecedores() {
           // <List.Item key={fornecedor.id} title={fornecedor.descricao} />
           <TouchableOpacity key={fornecedor.id} style={styles.fornecedor}>
               <Text> {fornecedor.nome}</Text>
-              <Image source={{ uri: fornecedor.claudio }} style={styles.imagem} />
+              <Image source={{ uri: fornecedor.imagem.file }} style={styles.imagem} />
             </TouchableOpacity>
         ))}
       </>
