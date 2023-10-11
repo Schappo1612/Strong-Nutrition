@@ -42,7 +42,7 @@ export default function Fornecedores() {
           // <List.Item key={fornecedor.id} title={fornecedor.descricao} />
           <TouchableOpacity key={fornecedor.id} style={styles.fornecedor}>
               <Text> {fornecedor.nome}</Text>
-              <Image source={{ uri: fornecedor.imagem.file }} style={styles.imagem} />
+              <Image source={{ uri: fornecedor.imagem?.file }} style={styles.imagem} />
             </TouchableOpacity>
         ))}
       </>

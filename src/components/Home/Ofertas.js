@@ -37,10 +37,10 @@ export default function Ofertas({ navigation }) {
     <View style={styles.container}>
       <View style={styles.header}>
         <View>
-          <Text style={styles.titulo}>Promoções</Text>
+          {/* <Text style={styles.titulo}>Promoções</Text> */}
         </View>
         <TouchableOpacity>
-          <Text style={styles.vejaMais}>Ver mais</Text>
+          {/* <Text style={styles.vejaMais}>Ver mais</Text> */}
         </TouchableOpacity>
       </View>
       <ScrollView

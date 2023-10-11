@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://191.52.55.83:19003/',
+  baseURL: 'https://bunbury-clownfish-bsha.2.us-1.fl0.io/',
 });
 
 export default api;
