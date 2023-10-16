@@ -14,8 +14,10 @@ export default function Login({ navigation }) {
   const setUser = useSetRecoilState(userState);
 
   const login = async () => {
+    console.log('eeee')
     try {
       const data = await loginApi.login(email, password);
+      console.log(data)
       setUser({
         loggedIn: true,
         access: data.access,

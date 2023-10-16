@@ -133,7 +133,7 @@ export default function Routes() {
           }}
         >
           <BottomTab.Screen
-            name="Login"
+            name="LoginRouter"
             component={LoginRouter}
             options={{
               headerStyle: { backgroundColor: "black" },
