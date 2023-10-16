@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+
 import compraService from "../../services/compras";
 
 export default function Pedidos() {
@@ -25,9 +26,9 @@ export default function Pedidos() {
         {compras.map((compra) => (
           <View key={compra.id} style={styles.compras}>
             <Text>
-              <li>Compra id: {compra.id}</li>
-              <li>usuario: {compra.usuario}</li>
-              <li>Status: {compra.status}</li>
+              <text>Compra id: {compra.id}</text>
+              <text>usuario: {compra.usuario}</text>
+              <text>Status: {compra.status}</text>
             </Text>
             {compra.itens.map((itens) => (
               <View style={styles.itens}>
@@ -36,8 +37,8 @@ export default function Pedidos() {
                   style={styles.imagem}
                 />
                 <Text>
-                  <li>{itens.categoria.descricao}</li>
-                  <li>quantidade: {itens.quantidade}</li>
+                  <text>{itens.categoria.descricao}</text>
+                  <text>quantidade: {itens.quantidade}</text>
                 </Text>
               </View>
             ))}

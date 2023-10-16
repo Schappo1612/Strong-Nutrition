@@ -21,7 +21,8 @@ export default function Item({ route, navigation }) {
   useEffect(async () => {
     const data = await comprasService.getAllCompras();
     setCompras(data);
-  }, []);
+  }, 
+  []);
 
   async function adicionar() {
     if (compra.id) {
