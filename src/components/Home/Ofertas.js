@@ -52,7 +52,7 @@ export default function Ofertas({ navigation }) {
           <TouchableOpacity
             style={styles.item}
             key={oferta.id}
-            onPress={() => navigation.navigate("Item", { item: oferta })}
+            // onPress={() => navigation.navigate("Item", { item: oferta })}
           >
             <Image source={{ uri: oferta.image }} style={styles.imagem} />
             <View style={styles.info}>

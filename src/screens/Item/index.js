@@ -1,86 +1,98 @@
-import React from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
+import React, { useEffect, useState } from "react";
+import { MaterialIcons } from "@expo/vector-icons";
 
-import { Image, ScrollView, Text, View, StyleSheet } from 'react-native';
+import {
+  Image,
+  ScrollView,
+  Text,
+  View,
+  StyleSheet,
+  Stack,
+  TextInput,
+} from "react-native";
+import { TouchableOpacity } from "react-native-web";
+
+import comprasService from "../../services/compras";
 
 export default function Item({ route, navigation }) {
+  const [compras, setCompras] = useState([]);
+  const [compra, setCompra] = useState({});
+
+  useEffect(async () => {
+    const data = await comprasService.getAllCompras();
+    setCompras(data);
+  }, []);
+
+  async function adicionar() {
+    if (compra.id) {
+      await comprasService.updateCompra(compra);
+    } else {
+      await comprasService.saveCompra(compra);
+    }
+    setCompras({});
+  }
+
   const { item } = route.params;
 
   return (
-    <ScrollView showsVerticalScrollIndicator={true} style={styles.container}>
-      <View style={styles.detalhe}></View>
-      <Image style={styles.itemImage} source={{ uri: item.image }}  />
-      <Text style={styles.itemTitulo}>{item.title}</Text>
-      <Text style={styles.itemIngredientes}>{item.ingredients}</Text>
-      <View style={styles.info}>
-        <Text style={styles.itemPreco}>{item.newPrice}</Text>
-        <Text style={styles.itemPrecoAntigo}>{item.price}</Text>
+    <View style={styles.container}>
+      <View style={styles.container1}>
+        <Text>{item.descricao}</Text>
       </View>
-
-      <View style={styles.entrega}>
-        <View style={styles.wrapper}>
-          <MaterialIcons name={item.icon} size={22} color="#F01" />
-          <Text style={styles.entregaTitulo}>{item.delivery}</Text>
-        </View>
-        <Text style={styles.entregaAtraso}>{item.delay}</Text>
+      <View style={styles.container2}>
+        <Image style={styles.itemImage} source={{ uri: item.imagem?.url }} />
       </View>
-    </ScrollView>
+      <View style={styles.container3}>
+        <TouchableOpacity style = {styles.comprar} onPress={adicionar}>Comprar</TouchableOpacity>
+        <Text>Quantidade:</Text>
+          <TextInput
+            style={styles.input}
+            // value={compra.itens.quantidade}
+            // onChangeText={(text) => setCompra({ ...compra, quantidade: text })}
+            placeholder="1"
+            keyboardType="numeric"
+          />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-  },
-  detalhe: {
-    marginTop: 10,
-    marginBottom: 0,
-    marginHorizontal: 20,
+    flex: 1,
+    flexDirection: "row",
   },
   itemImage: {
-    height: 180,
+    resizeMode: "contain",
+    height: "90%",
     borderRadius: 5,
+    backgroundColor: "",
   },
-  itemTitulo: {
-    fontSize: 32,
-    color: '#333',
-    fontWeight: 'bold',
-    marginTop: 10,
+  container1: {
+    flex: 1,
+    alignItems: "center",
+    paddingTop: 10,
   },
-  itemIngredientes: {
-    fontSize: 18,
-    color: '#999',
-    marginTop: 10,
+  container2: {
+    flex: 2,
+    justifyContent: "center",
   },
-  itemPreco: {
-    color: 'green',
-    fontSize: 22,
+  container3: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  itemPrecoAntigo: {
-    marginLeft: 5,
-    color: '#999',
-    fontSize: 22,
-    textDecorationLine: 'line-through',
+  comprar:{
+    backgroundColor: "green",
+    color: "white",
+    padding: 3,
+    borderColor: "black",
+    border: 2,
+    borderRadius: 90,
   },
-  entrega: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: 20,
-    borderWidth: 1,
-    borderColor: '#eee',
-    borderRadius: 2,
-    padding: 15,
-  },
-  wrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  entregaTitulo: {
-    fontSize: 15,
-    color: 'red',
-  },
-  entregaAtraso: {
-    marginLeft: 10,
+  input: {
+    width: "64%",
+    borderColor: "black",
+    border: 1,
   },
 });

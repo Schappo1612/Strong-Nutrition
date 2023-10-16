@@ -7,9 +7,10 @@ import {
   StyleSheet,
 } from "react-native";
 import { Text, Button, List } from "react-native-paper";
+
 import categoriaService from "../../services/categorias";
 
-export default function Categorias() {
+export default function Categorias({ navigation }) {
   const [categorias, setCategorias] = useState([]);
 
   const getCategorias = async () => {
@@ -35,20 +36,22 @@ export default function Categorias() {
         horizontal
         style={styles.lista}
       >
-        <>
-          {categorias.map((categoria) => (
-            <TouchableOpacity key={categoria.id} style={styles.categorias}>
-              <Text> {categoria.descricao}</Text>
-              <Image source={{ uri: categoria.imagem?.url }} style={styles.imagem} />
-            </TouchableOpacity>
-          ))}
-        </>
+        {categorias.map((categoria) => (
+          <TouchableOpacity
+            key={categoria.id}
+            style={styles.categorias}
+            onPress={() => navigation.navigate("Item", { item: categoria })}
+          >
+            <Text> {categoria.descricao}</Text>
+            <Image
+              source={{ uri: categoria.imagem?.url }}
+              style={styles.imagem}
+            />
+          </TouchableOpacity>
+        ))}
       </ScrollView>
     </View>
   );
-
-  
-  
 }
 
 const styles = StyleSheet.create({
@@ -82,8 +85,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: "#999",
   },
-  categorias:{
+  categorias: {
     marginLeft: 20,
     marginRight: 55,
-  }
+  },
 });

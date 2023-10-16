@@ -17,8 +17,8 @@ export default function Home({ navigation }) {
       <Input placeholder="Busque por item ou loja" />
       <CupomDesconto />
       <Promocoes />
-      <Ofertas navigation={navigation} />
-      <Categorias />
+      {/* <Ofertas navigation={navigation} /> */}
+      <Categorias navigation={navigation}/>
       <Fornecedores />
     </ScrollView>
   );
