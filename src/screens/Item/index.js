@@ -9,8 +9,8 @@ import {
   StyleSheet,
   Stack,
   TextInput,
+  TouchableOpacity
 } from "react-native";
-import { TouchableOpacity } from "react-native-web";
 
 import comprasService from "../../services/compras";
 
@@ -44,7 +44,11 @@ export default function Item({ route, navigation }) {
         <Image style={styles.itemImage} source={{ uri: item.imagem?.url }} />
       </View>
       <View style={styles.container3}>
-        <TouchableOpacity style = {styles.comprar} onPress={adicionar}>Comprar</TouchableOpacity>
+        <TouchableOpacity style = {styles.comprar} onPress={adicionar}>
+          <Text>
+          Comprar
+          </Text>
+        </TouchableOpacity>
         <Text>Quantidade:</Text>
           <TextInput
             style={styles.input}

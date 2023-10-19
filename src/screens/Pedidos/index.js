@@ -26,9 +26,9 @@ export default function Pedidos() {
         {compras.map((compra) => (
           <View key={compra.id} style={styles.compras}>
             <Text>
-              <text>Compra id: {compra.id}</text>
-              <text>usuario: {compra.usuario}</text>
-              <text>Status: {compra.status}</text>
+              <Text>Compra id: {compra.id}</Text>
+              <Text>usuario: {compra.usuario}</Text>
+              <Text>Status: {compra.status}</Text>
             </Text>
             {compra.itens.map((itens) => (
               <View style={styles.itens}>
@@ -37,8 +37,8 @@ export default function Pedidos() {
                   style={styles.imagem}
                 />
                 <Text>
-                  <text>{itens.categoria.descricao}</text>
-                  <text>quantidade: {itens.quantidade}</text>
+                  <Text>{itens.categoria.descricao}</Text>
+                  <Text>quantidade: {itens.quantidade}</Text>
                 </Text>
               </View>
             ))}
