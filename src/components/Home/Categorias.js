@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   titulo: {
-    fontSize: 23,
+    fontSize: 13,
     fontWeight: "bold",
   },
   lista: {
@@ -76,9 +76,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   imagem: {
-    width: 100,
-    height: 120,
-    borderRadius: 10,
+    width: 30,
+    height: 30,
+    borderRadius: 100,
   },
   categoriaTitulo: {
     fontSize: 16,

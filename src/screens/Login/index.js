@@ -7,8 +7,8 @@ import loginApi from '../../services/login';
 import { userState } from '../../recoil/atoms/auth';
 
 export default function Login({ navigation }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('admin@gmail.com');
+  const [password, setPassword] = useState('admin');
   const [errorMsg, setErrorMsg] = useState(null);
 
   const setUser = useSetRecoilState(userState);

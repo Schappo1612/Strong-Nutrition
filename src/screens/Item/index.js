@@ -38,7 +38,7 @@ export default function Item({ route, navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.container1}>
-        <Text>{item.descricao}</Text>
+        <Text style={styles.text12}>{item.descricao}</Text>
       </View>
       <View style={styles.container2}>
         <Image style={styles.itemImage} source={{ uri: item.imagem?.url }} />
@@ -49,6 +49,7 @@ export default function Item({ route, navigation }) {
           Comprar
           </Text>
         </TouchableOpacity>
+        <Text style={styles.preco12}>R$40,00</Text>
         <Text>Quantidade:</Text>
           <TextInput
             style={styles.input}
@@ -65,39 +66,62 @@ export default function Item({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: "column", // Alterado para column para melhorar o layout
+    padding: 16,
   },
   itemImage: {
     resizeMode: "contain",
-    height: "90%",
-    borderRadius: 5,
-    backgroundColor: "",
+    height: 200, // Altura fixa para uma melhor proporção
+    borderRadius: 8,
+    backgroundColor: "#f0f0f0",
+    marginBottom: 16,
   },
   container1: {
     flex: 1,
     alignItems: "center",
-    paddingTop: 10,
+    justifyContent: "center", // Centraliza o texto verticalmente
   },
+  text12:{
+    fontSize: 30,
+  },
+
+  preco12:{
+    fontSize:30,
+    marginTop:16,
+    marginBottom:16,
+  },
+
   container2: {
     flex: 2,
     justifyContent: "center",
+    paddingHorizontal: 16,
   },
   container3: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 16, // Adiciona espaçamento no topo
   },
-  comprar:{
-    backgroundColor: "green",
+  comprar: {
+    backgroundColor: "#4CAF50",
     color: "white",
-    padding: 3,
-    borderColor: "black",
-    border: 2,
-    borderRadius: 90,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderWidth: 2,
+    borderColor: "#2E8B57",
+    borderRadius: 10,
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
   },
   input: {
-    width: "64%",
-    borderColor: "black",
-    border: 1,
+    width: "100%",
+    height: 40, // Altura ajustada para melhor proporção
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    padding: 8,
+    textAlign: "center", // Centraliza o texto na entrada de texto
+    marginTop: 8, // Adiciona espaçamento acima da entrada de texto
   },
 });
