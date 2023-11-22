@@ -28,9 +28,9 @@ export default function Categorias({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <Text style={styles.titulo}>Categorias</Text>
-      </View>
+      </View> */}
       <ScrollView
         showsHorizontalScrollIndicator={false}
         horizontal
@@ -42,11 +42,11 @@ export default function Categorias({ navigation }) {
             style={styles.categorias}
             onPress={() => navigation.navigate("Item", { item: categoria })}
           >
-            <Text> {categoria.descricao}</Text>
             <Image
               source={{ uri: categoria.imagem?.url }}
               style={styles.imagem}
-            />
+              />
+              <Text> {categoria.descricao}</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
     color: "#999",
   },
   categorias: {
-    marginLeft: 20,
-    marginRight: 55,
+    marginLeft: 10,
+    marginRight: 10,
+    alignItems: 'center',
   },
 });

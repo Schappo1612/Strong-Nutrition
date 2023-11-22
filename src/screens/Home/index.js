@@ -1,15 +1,21 @@
 import React from "react";
 
-import { ScrollView, StyleSheet } from "react-native";
+import { Text, ScrollView, Image, StyleSheet } from "react-native";
 import Input from "../../components/Input";
 import Categorias from "../../components/Home/Categorias";
 import Fornecedores from "../../components/Home/Fornecedores";
+import Produtos from "../../components/Home/Produtos";
 
 export default function Home({ navigation }) {
   return (
     <ScrollView showsHorizontalScrollIndicator={true} style={styles.container}>
-      <Categorias navigation={navigation}/>
+      <Image
+        style={styles.imagem}
+        source={require('../../../assets/academia.png')}
+      />
+      <Categorias navigation={navigation} />
       <Fornecedores />
+      <Produtos />
     </ScrollView>
   );
 }
@@ -18,6 +24,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    backgroundColor: '#D9D9D9',
+    backgroundColor: "#D9D9D9",
+  },
+  imagem: {
+    width: 600, 
+    height: 200,
   },
 });

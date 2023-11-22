@@ -37,7 +37,6 @@ export default function Fornecedores() {
         horizontal
         style={styles.lista}
       >
-        <>
         {fornecedores.map((fornecedor) => (
           // <List.Item key={fornecedor.id} title={fornecedor.descricao} />
           <TouchableOpacity key={fornecedor.id} style={styles.fornecedor}>
@@ -45,8 +44,8 @@ export default function Fornecedores() {
               <Image source={{ uri: fornecedor.imagem?.file }} style={styles.imagem} />
             </TouchableOpacity>
         ))}
-      </>
       </ScrollView>
+      
     </View>
   );
 }
@@ -85,5 +84,6 @@ const styles = StyleSheet.create({
   fornecedor: {
     marginLeft: 20,
     marginRight: 55,
-  }
+  },
+
 });

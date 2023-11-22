@@ -37,19 +37,19 @@ export default function Item({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.container1}>
-        <Text style={styles.text12}>{item.descricao}</Text>
-      </View>
       <View style={styles.container2}>
         <Image style={styles.itemImage} source={{ uri: item.imagem?.url }} />
       </View>
+      <View style={styles.container1}>
+        <Text style={styles.text12}>{item.descricao}</Text>
+      </View>
       <View style={styles.container3}>
+        <Text style={styles.preco12}>R$40,00</Text>
         <TouchableOpacity style = {styles.comprar} onPress={adicionar}>
           <Text>
           Comprar
           </Text>
         </TouchableOpacity>
-        <Text style={styles.preco12}>R$40,00</Text>
         <Text>Quantidade:</Text>
           <TextInput
             style={styles.input}
