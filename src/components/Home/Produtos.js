@@ -8,22 +8,22 @@ import {
 } from "react-native";
 import { Text, Button, List } from "react-native-paper";
 
-import fornecedorService from "../../services/fornecedores";
+import produtoService from "../../services/produtos";
 
-export default function Fornecedores() {
-  const [fornecedores, setFornecedores] = useState([]);
+export default function Produtos() {
+  const [produtos, setProdutos] = useState([]);
 
-  const getFornecedores = async () => {
-    const data = await fornecedorService.getAllFornecedores();
-    setFornecedores(data);
+  const getProdutos = async () => {
+    const data = await produtoService.getAllProdutos();
+    setProdutos(data);
   };
 
   useEffect(async () => {
-    getFornecedores();
+    getProdutos();
   }, []);
 
-  const updateFornecedores = async () => {
-    await getFornecedores();
+  const updateProdutos = async () => {
+    await getProdutos();
   };
 
   return (
@@ -36,46 +36,17 @@ export default function Fornecedores() {
         horizontal
         style={styles.lista}
       >
-        {fornecedores.map((fornecedor) => (
-          // <List.Item key={fornecedor.id} title={fornecedor.descricao} />
-          <TouchableOpacity key={fornecedor.id} style={styles.fornecedor}>
-            <Text> {fornecedor.nome}</Text>
+        {produtos.map((produto) => (
+          // <List.Item key={produto.id} title={produto.descricao} />
+          <TouchableOpacity key={produto.id} style={styles.produto}>
+            <Text> {produto.titulo}</Text>
             <Image
-              source={{ uri: fornecedor.imagem?.file }}
+              source={{ uri: produto.imagem?.file }}
               style={styles.imagem}
             />
           </TouchableOpacity>
         ))}
-        {fornecedores.map((fornecedor) => (
-          // <List.Item key={fornecedor.id} title={fornecedor.descricao} />
-          <TouchableOpacity key={fornecedor.id} style={styles.fornecedor}>
-            <Text> {fornecedor.nome}</Text>
-            <Image
-              source={{ uri: fornecedor.imagem?.file }}
-              style={styles.imagem}
-            />
-          </TouchableOpacity>
-        ))}
-        {fornecedores.map((fornecedor) => (
-          // <List.Item key={fornecedor.id} title={fornecedor.descricao} />
-          <TouchableOpacity key={fornecedor.id} style={styles.fornecedor}>
-            <Text> {fornecedor.nome}</Text>
-            <Image
-              source={{ uri: fornecedor.imagem?.file }}
-              style={styles.imagem}
-            />
-          </TouchableOpacity>
-        ))}
-        {fornecedores.map((fornecedor) => (
-          // <List.Item key={fornecedor.id} title={fornecedor.descricao} />
-          <TouchableOpacity key={fornecedor.id} style={styles.fornecedor}>
-            <Text> {fornecedor.nome}</Text>
-            <Image
-              source={{ uri: fornecedor.imagem?.file }}
-              style={styles.imagem}
-            />
-          </TouchableOpacity>
-        ))}
+
       </View>
     </View>
   );

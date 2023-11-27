@@ -40,12 +40,12 @@ export default function Fornecedores() {
         {fornecedores.map((fornecedor) => (
           // <List.Item key={fornecedor.id} title={fornecedor.descricao} />
           <TouchableOpacity key={fornecedor.id} style={styles.fornecedor}>
-              <Text> {fornecedor.nome}</Text>
-              <Image source={{ uri: fornecedor.imagem?.file }} style={styles.imagem} />
-            </TouchableOpacity>
+            <Text> {fornecedor.nome}</Text>
+            <Image source={{ uri: fornecedor.imagem?.file }} style={styles.imagem} />
+          </TouchableOpacity>
         ))}
       </ScrollView>
-      
+
     </View>
   );
 }
