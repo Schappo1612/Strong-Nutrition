@@ -30,6 +30,7 @@ export default function Produtos() {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.titulo}>Produtos</Text>
+        
       </View>
       <View
         showsHorizontalScrollIndicator={false}

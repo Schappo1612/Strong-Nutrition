@@ -5,15 +5,12 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,
 } from "react-native";
-
 
 import compraService from "../../services/compras";
 
 export default function Pedidos() {
   const [compras, setCompras] = useState([]);
-  const [compra, setCompra] = useState({});
 
   useEffect(async () => {
     const data = await compraService.getAllCompras();
@@ -24,22 +21,22 @@ export default function Pedidos() {
     <View style={styles.container}>
       <ScrollView showsHorizontalScrollIndicator={false}>
         {compras.map((compra) => (
-          <View key={compra.id} style={styles.compras}>
-            <Text>
-              <Text>Compra id: {compra.id}</Text>
-              <Text>usuario: {compra.usuario}</Text>
+          <View key={compra.id} style={styles.cartItem}>
+            <View style={styles.itemInfo}>
+              <Text style={styles.title}>Compra ID: {compra.id}</Text>
+              <Text>Usuário: {compra.usuario}</Text>
               <Text>Status: {compra.status}</Text>
-            </Text>
-            {compra.itens.map((itens) => (
-              <View style={styles.itens}>
+            </View>
+            {compra.itens.map((itens, index) => (
+              <View key={index} style={styles.item}>
                 <Image
                   source={{ uri: itens.categoria.imagem?.file }}
-                  style={styles.imagem}
+                  style={styles.image}
                 />
-                <Text>
-                  <Text>{itens.categoria.descricao}</Text>
-                  <Text>quantidade: {itens.quantidade}</Text>
-                </Text>
+                <View style={styles.itemInfo}>
+                  <Text style={styles.title}>{itens.categoria.descricao}</Text>
+                  <Text>Quantidade: {itens.quantidade}</Text>
+                </View>
               </View>
             ))}
           </View>
@@ -52,24 +49,35 @@ export default function Pedidos() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#f5f5f5",
+    padding: 10,
+  },
+  cartItem: {
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#ddd",
     backgroundColor: "#fff",
-  },
-  imagem: {
-    resizeMode: "contain",
-    height: 100,
-    width: 100,
-    borderWidth: 1,
-  },
-  compras: {
-    borderWidth: 1,
     margin: 10,
-    padding: 3,
+    padding: 15,
   },
-  itens: {
+  item: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  image: {
+    resizeMode: "cover",
+    height: 80,
+    width: 80,
+    borderRadius: 5,
+    marginRight: 10,
+  },
+  itemInfo: {
     flex: 1,
-    borderWidth: 1,
-    margin: 10,
-    padding: 3,
-    flexDirection: "row"
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 5,
   },
 });
