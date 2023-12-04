@@ -9,7 +9,8 @@ import {
   StyleSheet,
   Stack,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert,
 } from "react-native";
 
 import comprasService from "../../services/compras";
@@ -21,8 +22,7 @@ export default function Item({ route, navigation }) {
   useEffect(async () => {
     const data = await comprasService.getAllCompras();
     setCompras(data);
-  }, 
-  []);
+  }, []);
 
   async function adicionar() {
     if (compra.id) {
@@ -34,7 +34,7 @@ export default function Item({ route, navigation }) {
     setCompras({});
   }
 
-  const { item } = route.params; 
+  const { item } = route.params;
 
   return (
     <View style={styles.container}>
@@ -46,19 +46,17 @@ export default function Item({ route, navigation }) {
       </View>
       <View style={styles.container3}>
         <Text style={styles.preco12}>R$40,00</Text>
-        <TouchableOpacity  style = {styles.comprar} onPress={adicionar}>
-          <Text>
-          Comprar
-          </Text>
+        <TouchableOpacity style={styles.comprar} onPress={adicionar}>
+          <Text>Comprar</Text>
         </TouchableOpacity>
         <Text>Quantidade:</Text>
-          <TextInput
-            style={styles.input}
-            // value={compra.itens.quantidade}
-            // onChangeText={(text) => setCompra({ ...compra, quantidade: text })}
-            placeholder="1"
-            keyboardType="numeric"
-          />
+        <TextInput
+          style={styles.input}
+          // value={compra.itens.quantidade}
+          // onChangeText={(text) => setCompra({ ...compra, quantidade: text })}
+          placeholder="1"
+          keyboardType="numeric"
+        />
       </View>
     </View>
   );
@@ -82,14 +80,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center", // Centraliza o texto verticalmente
   },
-  text12:{
+  text12: {
     fontSize: 30,
   },
 
-  preco12:{
-    fontSize:30,
-    marginTop:16,
-    marginBottom:16,
+  preco12: {
+    fontSize: 30,
+    marginTop: 16,
+    marginBottom: 16,
   },
 
   container2: {
@@ -126,4 +124,3 @@ const styles = StyleSheet.create({
     marginTop: 8, // Adiciona espaçamento acima da entrada de texto
   },
 });
-
