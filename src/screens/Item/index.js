@@ -30,10 +30,11 @@ export default function Item({ route, navigation }) {
     } else {
       await comprasService.saveCompra(compra);
     }
+
     setCompras({});
   }
 
-  const { item } = route.params;
+  const { item } = route.params; 
 
   return (
     <View style={styles.container}>
@@ -45,7 +46,7 @@ export default function Item({ route, navigation }) {
       </View>
       <View style={styles.container3}>
         <Text style={styles.preco12}>R$40,00</Text>
-        <TouchableOpacity style = {styles.comprar} onPress={adicionar}>
+        <TouchableOpacity  style = {styles.comprar} onPress={adicionar}>
           <Text>
           Comprar
           </Text>
@@ -125,3 +126,4 @@ const styles = StyleSheet.create({
     marginTop: 8, // Adiciona espaçamento acima da entrada de texto
   },
 });
+

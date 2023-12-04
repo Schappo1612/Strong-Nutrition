@@ -14,6 +14,7 @@ import Pedidos from "./screens/Pedidos";
 import PedidosAnteriores from "./screens/PedidosAnteriores";
 import Pagamentos from "./screens/Pagamentos";
 import Item from "./screens/Item";
+import ItemProduto from "./screens/ItemProduto"
 import Login from "./screens/Login"
 
 import { useRecoilValue } from "recoil";
@@ -40,6 +41,7 @@ function HomeRoutes() {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
       <Stack.Screen name="Item" component={Item} options={{headerShown: false}} />
+      <Stack.Screen name="ItemProduto" component={ItemProduto} options={{headerShown: false}} />
     </Stack.Navigator>
   );
 }

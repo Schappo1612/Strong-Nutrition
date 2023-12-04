@@ -10,7 +10,7 @@ import { Text, Button, List } from "react-native-paper";
 
 import produtoService from "../../services/produtos";
 
-export default function Produtos() {
+export default function Produtos({navigation}) {
   const [produtos, setProdutos] = useState([]);
 
   const getProdutos = async () => {
@@ -30,7 +30,6 @@ export default function Produtos() {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.titulo}>Produtos</Text>
-        
       </View>
       <View
         showsHorizontalScrollIndicator={false}
@@ -39,7 +38,11 @@ export default function Produtos() {
       >
         {produtos.map((produto) => (
           // <List.Item key={produto.id} title={produto.descricao} />
-          <TouchableOpacity key={produto.id} style={styles.produto}>
+          <TouchableOpacity
+            key={produto.id}
+            style={styles.produto}
+            onPress={() => navigation.navigate("ItemProduto", { prod: produto })}
+          >
             <Text> {produto.titulo}</Text>
             <Image
               source={{ uri: produto.imagem?.file }}
@@ -47,7 +50,6 @@ export default function Produtos() {
             />
           </TouchableOpacity>
         ))}
-
       </View>
     </View>
   );

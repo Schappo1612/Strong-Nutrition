@@ -15,7 +15,7 @@ export default function Home({ navigation }) {
       />
       <Categorias navigation={navigation} />
       <Fornecedores />
-      <Produtos />
+      <Produtos navigation={navigation} />
     </ScrollView>
   );
 }

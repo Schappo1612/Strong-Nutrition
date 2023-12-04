@@ -39,8 +39,8 @@ export default function Categorias({ navigation }) {
         {categorias.map((categoria) => (
           <TouchableOpacity
             key={categoria.id}
-            style={styles.categorias}
-            onPress={() => navigation.navigate("Item", { item: categoria })}
+            style={styles.categorias} 
+            onPress={() => navigation.navigate("Item", { item: categoria })} 
           >
             <Image
               source={{ uri: categoria.imagem?.url }}
